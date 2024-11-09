@@ -117,7 +117,6 @@ class LatihanScreen extends StatelessWidget {
                     ),
                     //TODO: Baris berisi kontak
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Expanded(
                           child: Row(
