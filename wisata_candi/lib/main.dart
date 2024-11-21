@@ -5,6 +5,7 @@ import 'package:wisata_candi/detail_screen.dart';
 import 'package:wisata_candi/profil_screen.dart';
 import 'package:wisata_candi/search_screen.dart';
 import 'package:wisata_candi/home_screen.dart';
+import 'package:wisata_candi/sign_up_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -25,7 +26,7 @@ class MainApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MainScreen(),
+      home: const SignUpScreen(),
     );
   }
 }
