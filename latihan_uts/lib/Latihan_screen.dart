@@ -1,177 +1,182 @@
 import 'package:flutter/material.dart';
 
-class LatihanScreen extends StatelessWidget {
-  const LatihanScreen({super.key});
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Bioskop App',
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+    );
+  }
+}
 
+class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Latihan UTS'),
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        title: Text(
+          "TIBOX",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CircleAvatar(
+              backgroundColor: Colors.black,
+              child: Icon(
+                Icons.person,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Text(
-                'INFORMATIKA',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21),
-              ),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Image.asset('images/latihan.jpg',
-                height: 250, width: double.infinity, fit: BoxFit.cover),
-            Text(
-              'Universitas Multi Data Palembang',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Text(
-              'Kota Palembang, Prov. Sumatera Selatan',
-              style: TextStyle(fontSize: 18),
-            ),
-            const SizedBox(
-              height: 6,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.red[900],
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  children: [
-                    //TODO: Baris berisi info
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        //kiri
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Status',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Text('Aktif',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold)),
-                              Text('Akreditasi',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  )),
-                              Text('Unggul',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                height: 8,
-                              ),
-                            ],
-                          ),
-                        ),
-                        //kanan
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Tanggal Berdiri',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Text(
-                                '9 April 2021',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                'Jumlah Mahasiswa',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Text(
-                                '100',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    //TODO: Baris berisi kontak
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.call,
-                                color: Colors.white,
-                              ),
-                              Text(
-                                '089651461780',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.email,
-                                color: Colors.white,
-                              ),
-                              Text(
-                                'felix@gmail.com',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.web,
-                                color: Colors.white,
-                              ),
-                              Text(
-                                'Https://Mdp',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Gambar film
+              Container(
+                width: double.infinity,
+                height: 180,
+                decoration: BoxDecoration(
+                  color: Colors.blue.shade100,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Icon(
+                  Icons.image,
+                  size: 80,
+                  color: Colors.blue,
                 ),
               ),
-            ),
-          ],
+              SizedBox(height: 16),
+              // Judul dan deskripsi
+              Text(
+                "JUDUL FILM",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                "SinopsisLorem ipsum dolor sit amet, consectetur adipiscing elit. "
+                "Mauris sed lacus dolor. Mauris dignissim urna non lacus aliquet.",
+                style: TextStyle(fontSize: 14, color: Colors.grey.shade700),
+              ),
+              SizedBox(height: 16),
+              // Tombol Beli Tiket
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.orange,
+                    minimumSize: Size(double.infinity, 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: Text(
+                    "Beli Tiket",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 16),
+              // Jadwal dan harga
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _dateButton("1 Jan"),
+                  _dateButton("2 Jan"),
+                  _dateButton("3 Jan"),
+                  _dateButton("4 Jan"),
+                ],
+              ),
+              SizedBox(height: 16),
+              // Bioskop dan jam tayang
+              _bioskopSection(
+                  "Bioskop 1", ["Jam 1", "Jam 2", "Jam 3", "Jam 4"], "Harga 1"),
+              _bioskopSection(
+                  "Bioskop 2", ["Jam 1", "Jam 5", "Jam 6"], "Harga 2"),
+              _bioskopSection(
+                  "Bioskop 3", ["Jam 1", "Jam 2", "Jam 3"], "Harga 3"),
+            ],
+          ),
         ),
       ),
     );
   }
+
+  Widget _dateButton(String date) {
+    return ElevatedButton(
+      onPressed: () {},
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.orange.shade300,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+      child: Text(date, style: TextStyle(color: Colors.white)),
+    );
+  }
+
+  Widget _bioskopSection(String name, List<String> times, String price) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(height: 8),
+        Text(
+          name,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        ),
+        SizedBox(height: 8),
+        Wrap(
+          spacing: 8,
+          children: times.map((time) => _timeButton(time)).toList(),
+        ),
+        SizedBox(height: 8),
+        Text(price,
+            style: TextStyle(fontSize: 14, color: Colors.grey.shade600)),
+        Divider(thickness: 1),
+      ],
+    );
+  }
+
+  Widget _timeButton(String time) {
+    return ElevatedButton(
+      onPressed: () {},
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.orange.shade100,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+      child: Text(
+        time,
+        style: TextStyle(color: Colors.black),
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: DetailScreen(),
+  ));
 }
